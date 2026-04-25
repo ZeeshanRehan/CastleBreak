@@ -6,18 +6,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public float knockbackForce = 2f;
 
     public void TakeDamage(int amount)
+{
+    health -= amount;
+    Debug.Log(gameObject.name + " HP: " + health);
+
+    if (health <= 0)
     {
-        health -= amount;
-        Debug.Log(gameObject.name + " HP: " + health);
-
-        ApplyKnockback();
-
-        if (health <= 0)
+        if (CompareTag("Boss"))
         {
-            Debug.Log(gameObject.name + " died");
-            Destroy(gameObject);
+            Debug.Log("YOU WIN");
         }
+
+        Destroy(gameObject);
     }
+}
 
     void ApplyKnockback()
     {

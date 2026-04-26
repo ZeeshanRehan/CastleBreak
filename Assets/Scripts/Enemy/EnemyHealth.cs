@@ -10,15 +10,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     health -= amount;
     Debug.Log(gameObject.name + " HP: " + health);
 
-    if (health <= 0)
+if (health <= 0)
+{
+    if (CompareTag("Boss"))
     {
-        if (CompareTag("Boss"))
-        {
-            Debug.Log("YOU WIN");
-        }
-
-        Destroy(gameObject);
+        GameManager.Instance.WinGame();
     }
+
+    Destroy(gameObject);
+}
 }
 
     void ApplyKnockback()

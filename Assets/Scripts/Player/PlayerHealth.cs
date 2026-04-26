@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             Die();
+            
             return;
         }
 
@@ -46,6 +47,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
 
         Debug.Log("Game Over");
+
+            GameManager.Instance.LoseGame(); 
     }
 
     IEnumerator InvulnerabilityFrames()

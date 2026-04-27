@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        speed  = PlayerData.moveSpeed;
     }
 
     void Update()

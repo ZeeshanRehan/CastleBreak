@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    public int maxHealth = 5;
+    public int maxHealth;
     public float invulnDuration = 1f;
 
     private int currentHealth;
@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void Start()
     {
+        maxHealth = PlayerData.maxHealth;
+
+
         currentHealth = maxHealth;
         playerController = GetComponent<PlayerController>();
     }
